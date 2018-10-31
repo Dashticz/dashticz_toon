@@ -68,7 +68,7 @@ App {
 					
 					var temp = JSON.parse(settingsFile.responseText);
 					for (var setting in settings) {
-						if (!temp[setting])  { temp[setting] = settings[setting]; } // use default if no saved setting exists
+						if (temp[setting] === undefined)  { temp[setting] = settings[setting]; } // use default if no saved setting exists
 					}
 					settings = temp;
 					tileIDXList = settings.domoticzTileIDX.split(',')
